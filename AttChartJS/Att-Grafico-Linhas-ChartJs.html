@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafico em linhas</title>
+</head>
+
+<body>
+    <div>
+        <canvas id="grafico-linhas"></canvas> 
+    </div>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('grafico-linhas'); 
+    // ctx = é o contexto do grafico
+    const data = {
+        // data = valores numéricos que serão inseridos no gráfico
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+        // label = representam os rótulos do eixo X
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 192, 203)',
+            borderColor: 'rgb(255, 192, 203)',
+            data: [30, 29, 28, 25, 22, 23]
+        }, {
+            label: 'Umidade',
+            backgroundColor: 'rgb(54, 162, 235)',
+            borderColor: 'rgb(54, 162, 235)',
+            data: [80, 82, 80, 85, 80, 83]
+        }]
+    
+    };
+    const config = {
+        type: 'line',
+        data: data,
+        // o data se repetiu por quê? - especificamos o data para usar as informações contidas na constante data que definimos anteriormente
+        options: {}
+    };
+    // config = contém informações sobre o tipo de gráfico, que é um gráfico de linha
+    new Chart(ctx, config);
+    // Chart = cria o gráfico, e utiliza o contexto (ctx) e as informações de configuração (config), uni elas, e cria o gráfico.
+</script>
